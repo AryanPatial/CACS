@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College of Applied & Collaborative Studies</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding-top: 120px;
+}
+
+.green-text {
+    color: #00ff00;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00aa00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all .3s ease;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(0,255,0,.3);
+}
+
+.btn:hover {
+    background-color: #00ff00;
+    transform: translateY(-2px);
+    text-shadow: 0 0 5px rgba(0,255,0,.5);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #121212;
+    box-shadow: 0 2px 10px rgba(0, 255, 0, .1);
+    z-index: 1000;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.title {
+    color: #00ff00;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.main-nav {
+    padding: 10px 0;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-nav li {
+    margin: 0 15px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: .85rem;
+    transition: color .3s ease;
+}
+
+.main-nav a:hover {
+    color: #00ff00;
+}
+
+.hero-section {
+    background: url('images/image (1).jpg') no-repeat center center/cover;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-position: center 30%;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 span {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #00aa00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all .3s ease;
+    box-shadow: 0 0 10px rgba(0,255,0,.3);
+}
+
+.hero-button:hover {
+    background-color: #00ff00;
+    transform: translateY(-3px);
+    text-shadow: 0 0 5px rgba(0,255,0,.5);
+}
+
+.button-container p {
+    margin-top: 10px;
+    color: rgba(255,255,255,.9);
+}
+
+.philosophy-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.philosophy-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.philosophy-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.philosophy-content p {
+    font-size: 1.1rem;
+}
+
+.programs-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+.programs-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform .5s ease;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.carousel-item {
+    min-width: calc(33.333% - 20px);
+    background: #121212;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    padding: 20px;
+    text-align: center;
+    flex: 0 0 auto;
+    transition: transform .3s ease;
+    border: 1px solid #333;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.carousel-item h3 {
+    margin-bottom: 15px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #00aa00;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-control:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.combined-sections {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.pbl-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pbl-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #121212;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.pbl-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.pbl-image {
+    flex: 1;
+}
+
+.pbl-image img {
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+    object-fit: cover;
+    height: 350px;
+}
+
+.future-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.future-image {
+    flex: 1;
+}
+
+.future-image img {
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+    object-fit: cover;
+    height: 350px;
+}
+
+.future-students-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #121212;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.future-students-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.bottom-sections {
+    max-width: 1200px;
+    margin: 1rem auto 3rem;
+    padding: 0 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.contact-advisor {
+    flex: 1;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+    height: 350px;
+}
+
+.advisor-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.advisor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.advisor-hover-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,175,80,.8);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.contact-now-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    background-color: #fff;
+    color: #00aa00;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all .3s ease;
+    z-index: 2;
+}
+
+.advisor-image-container:hover .advisor-hover-text {
+    opacity: 1;
+}
+
+.advisor-image-container:hover .contact-now-btn {
+    opacity: 1;
+    bottom: 40px;
+}
+
+.innovation-section {
+    flex: 1;
+    margin-top: 20px;
+    height: 350px;
+}
+
+.innovation-container {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.innovation-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.innovation-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.music-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: rgba(0,0,0,.7);
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.innovation-image-container:hover .music-buttons {
+    opacity: 1;
+}
+
+.music-btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .3s ease;
+    width: 150px;
+    text-align: center;
+}
+
+.spotify-btn {
+    background-color: #1DB954;
+    color: #fff;
+}
+
+.apple-btn {
+    background-color: #FC3C44;
+    color: #fff;
+}
+
+.music-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 2rem;
+    font-size: .9rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.5rem;
+}
+
+.footer-logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.footer-logo {
+    height: 40px;
+}
+
+.footer-college-name {
+    font-weight: 600;
+    color: #00ff00;
+    font-size: .9rem;
+}
+
+.footer-addresses {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.address p, .phone p {
+    margin: .2rem 0;
+    color: #ccc;
+    font-size: .8rem;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.follow-us {
+    font-weight: 600;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: .8rem;
+}
+
+.social-icons a {
+    color: #fff;
+    background-color: #00aa00;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    font-size: .8rem;
+}
+
+.social-icons a:hover {
+    background-color: #00ff00;
+    transform: translateY(-3px);
+}
+
+.footer-actions {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.footer-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #00aa00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: all .3s ease;
+    box-shadow: 0 0 10px rgba(0,255,0,.3);
+    font-size: .8rem;
+}
+
+.footer-btn:hover {
+    background-color: #00ff00;
+    transform: translateY(-2px);
+    text-shadow: 0 0 5px rgba(0,255,0,.5);
+}
+
+.footer-links {
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.quick-links h4 {
+    color: #00ff00;
+    margin-bottom: .8rem;
+    font-size: .9rem;
+}
+
+.quick-links ul, .legal-links ul {
+    list-style: none;
+}
+
+.quick-links li, .legal-links li {
+    margin-bottom: .3rem;
+}
+
+.quick-links a, .legal-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color .3s ease;
+    font-size: .8rem;
+}
+
+.quick-links a:hover, .legal-links a:hover {
+    color: #fff;
+}
+
+.footer-copyright {
+    grid-column: 1/-1;
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #333;
+    color: #999;
+    font-size: .8rem;
+}
+
+@media (max-width: 1024px) {
+    .header-top {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap;
+    }
+    
+    .main-nav li {
+        margin: 0 10px 5px;
+    }
+    
+    .carousel-item {
+        min-width: calc(50% - 20px);
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+    .pbl-container, .future-container {
+        flex-direction: column;
+    }
+    
+    .bottom-sections {
+        flex-direction: column;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 150px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .carousel-item {
+        min-width: calc(100% - 20px);
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-nav li {
+        margin: 5px 0;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-logo-section, .footer-addresses, .footer-social, .footer-actions {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .carousel-control {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <img src="images/unt-lettermark-eagle-logo.svg" alt="UNT Logo" class="logo">
+            <div class="title">COLLEGE OF APPLIED & COLLABORATIVE STUDIES</div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">ACADEMICS</a></li>
+                <li><a href="#">ADVISING</a></li>
+                <li><a href="#">PROJECT-BASED LEARNING</a></li>
+                <li><a href="#">INTERNSHIPS</a></li>
+                <li><a href="#">SCHOLARSHIPS</a></li>
+                <li><a href="#">NEWS & EVENTS</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>
+                <span class="green-text">College</span>
+                <span>of</span>
+                <span class="green-text">Applied</span>
+                <span>&</span>
+                <span class="green-text">Collaborative</span>
+                <span style="color: BLACK">Studies</span>
+            </h1>
+            
+            <div class="action-buttons">
+                <div class="button-container">
+                    <a href="#" class="hero-button">Apply</a>
+                    <p>Start your journey with us today</p>
+                </div>
+                
+                <div class="button-container">
+                    <a href="#" class="hero-button">Achievement</a>
+                    <p>Explore our success stories</p>
+                </div>
+                
+                <div class="button-container">
+                    <a href="#" class="hero-button">Know More</a>
+                    <p>Discover what makes us unique</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="philosophy-section">
+        <div class="philosophy-content">
+            <h2 class="green-text">Our Philosophy</h2>
+            <p>The College of Applied & Collaborative Studies (CACS) prepares students to engage with a rapidly changing environment through partnership and innovation. In collaboration with industry partners in the DFW metroplex, CACS creates ongoing opportunities for students to learn and grow in today's workforce through project-based learning.</p>
+        </div>
+    </section>
+
+    <section class="programs-section">
+        <h2>Our Programs</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/applied science & arts.jpg" alt="Applied Arts & Sciences">
+                    <h3>Applied Arts & Sciences (BAAS)</h3>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/project design.jpg" alt="Project Design">
+                    <h3>Project Design and Analysis (BS)</h3>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/project design and analysis.jpg" alt="Project Design Analysis">
+                    <h3>Applied Project Design and Analysis (BS)</h3>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/industrial distribution.jpg" alt="Industrial Distribution">
+                    <h3>Industrial Distribution</h3>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/enology.jpg" alt="Enology & Brewing">
+                    <h3>Enology & Brewing Minor / Certificate</h3>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/applied heritage management.jpg" alt="Heritage Management">
+                    <h3>Applied Heritage Management Minor / Certificate</h3>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <div class="combined-sections">
+        <div class="pbl-container">
+            <div class="pbl-content">
+                <h2 class="green-text">PROJECT BASED LEARNING</h2>
+                <p>Project Based Learning is the cornerstone of our curriculum. Students work on real-world projects throughout the semester with guidance from professors, gaining hands-on experience that prepares them for their careers.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="pbl-image">
+                <img src="images/project based learning.jpg" alt="Project Based Learning">
+            </div>
+        </div>
+        
+        <div class="future-container">
+            <div class="future-image">
+                <img src="images/future student.jpg" alt="Future Students">
+            </div>
+            <div class="future-students-content">
+                <h2 class="green-text">FUTURE STUDENTS</h2>
+                <p>At CACS, we bring real-world problems into the classroom. Our Project-Based Learning approach gives students concrete experiences that prepare them for their career field of choice. Whatever your academic background, we're here to help you succeed.</p>
+                <a href="#" class="btn">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-sections">
+        <div class="contact-advisor">
+            <div class="advisor-image-container">
+                <img src="images/contact advisor.jpg" alt="Contact Advisor" class="advisor-image">
+                <div class="advisor-hover-text">CONTACT ADVISOR NOW</div>
+                <a href="#" class="contact-now-btn">CONTACT NOW</a>
+            </div>
+        </div>
+        
+        <div class="innovation-section">
+            <div class="innovation-container">
+                <div class="innovation-image-container">
+                    <img src="images/innovation_station_1.png" alt="Innovation Station" class="innovation-image">
+                    <div class="music-buttons">
+                        <a href="#" class="music-btn spotify-btn">Spotify</a>
+                        <a href="#" class="music-btn apple-btn">Apple Music</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-section">
+                <img src="images/unt-lettermark-eagle-logo.svg" alt="UNT Diving Eagle Logo" class="footer-logo">
+                <div class="footer-college-name">College of Applied & Collaborative Studies</div>
+            </div>
+            
+            <div class="footer-addresses">
+                <div class="address">
+                    <p>12995 Preston Rd.</p>
+                    <p>Frisco, TX 75033</p>
+                </div>
+                <div class="address">
+                    <p>1155 Union Circle #305009</p>
+                    <p>Denton, Texas 76203</p>
+                </div>
+                <div class="phone">
+                    <p>940-369-8129</p>
+                </div>
+            </div>
+            
+            <div class="footer-social">
+                <p class="follow-us">Follow Us</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-actions">
+                <a href="#" class="footer-btn">Apply now!</a>
+                <a href="#" class="footer-btn">Take a tour</a>
+                <a href="#" class="footer-btn">Get more info</a>
+            </div>
+            
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h4>University of North Texas</h4>
+                    <ul>
+                        <li><a href="#">MyUNT</a></li>
+                        <li><a href="#">Canvas</a></li>
+                        <li><a href="#">Student Email</a></li>
+                        <li><a href="#">UNT Directory</a></li>
+                        <li><a href="#">Campus Map</a></li>
+                        <li><a href="#">Jobs at UNT</a></li>
+                    </ul>
+                </div>
+                
+                <div class="legal-links">
+                    <ul>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">EO/TIX</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Electronic Accessibility</a></li>
+                        <li><a href="#">Required Links</a></li>
+                        <li><a href="#">UNT Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy;2025 University of North Texas. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            const c=document.querySelector('.carousel'),i=document.querySelectorAll('.carousel-item'),p=document.querySelector('.carousel-control.prev'),n=document.querySelector('.carousel-control.next'),t=document.querySelector('.carousel-container');
+            let x=0,w=i[0].offsetWidth+20,v=Math.floor(t.offsetWidth/w),m=Math.max(0,i.length-v);
+            function u(){x=Math.max(0,Math.min(x,m)),c.style.transform=`translateX(-${x*w}px)`,p.disabled=0===x,n.disabled=x>=m}
+            p.addEventListener('click',function(){x>0&&(x--,u())}),n.addEventListener('click',function(){x<m&&(x++,u())}),window.addEventListener('resize',u),u()
+        });
+    </script>
+</body>
+</html>
